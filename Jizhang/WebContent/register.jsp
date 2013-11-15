@@ -4,15 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>register</title>
 </head>
 <body>
-	<%
-		if(session.getAttribute("name")!=null){
-			session.setAttribute("name", null);
-		}
-	%>
-	<form id="login" method="post" action="/Jizhang/login">
+	<form id="login" method="post" action="/Jizhang/register">
 		<table>
 			<tr>
 				<td>id:</td>
@@ -22,22 +17,19 @@
 				<td>password:</td>
 				<td><input type="password" name="pwd" /></td>
 			</tr>
+				<tr>
+				<td>email:</td>
+				<td><input type="text" name="id" /></td>
+			</tr>
+				<tr>
+				<td>phone:</td>
+				<td><input type="text" name="id" /></td>
+			</tr>
 			<tr>
-				<td ><input type="submit" value="login" /></td>
-				<td ><a href="register.jsp">register</a></td>
+				<td rowspan="2"><input type="submit" value="submit" /></td>
 			</tr>
 		</table>
 	</form>
-	<table border="1px solid red">
-	<%for(int i=0;i<10;i++){%>
-		<tr>
-			<td><%=i %></td>
-			<td>bb</td>
-			<td>cc</td>
-			<td>dd</td>
-		</tr>
-	<%} %>
-	
-	</table>
+
 </body>
 </html>
