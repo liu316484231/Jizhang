@@ -5,20 +5,37 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+ <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+	$(function() {
+		$("#datepicker").datepicker();
+	});
+</script>
+<title>Jizhang</title>
 </head>
 <body>
 	welcome:<%=session.getAttribute("name") %>
 	
 	<form method="post" action="chakan.jsp">
 		<table>
-			<tr>
-				<td>money:</td>
-				<td><input type="text" name="money" /></td>
-			</tr>
+		
 			<tr>
 				<td>website:</td>
 				<td><input type="text" name="website" /></td>
+			</tr>
+			<tr>
+				<td>account:</td>
+				<td><input type="text" name="account" /></td>
+			</tr>
+			<tr>
+				<td>date:</td>
+				<td><input type="text" name="date" id="datepicker"/></td>
+			</tr>
+			<tr>
+				<td>money:</td>
+				<td><input type="text" name="money" /></td>
 			</tr>
 			<tr>
 				<td>interest:</td>
@@ -28,6 +45,14 @@
 					<input type="radio" name="interest1" value="year" />year
 					
 				</td>
+			</tr>
+			<tr>
+				<td>bonus:</td>
+				<td><input type="text" name="bonus" />%</td>
+			</tr>
+			<tr>
+				<td>management:</td>
+				<td><input type="text" name="management" />%</td>
 			</tr>
 			<tr>
 				<td>duration:</td>
@@ -44,7 +69,19 @@
 						<option value="1">month</option>
 						<option value="2">year</option>
 						<option value="3">season</option>
+						<option value="4">season</option>
 				</select></td>
+
+			</tr>
+			<tr>
+				<td>status:</td>
+				<td><input type="radio" name="status" value="ing" />in the payment</td>
+				<td><input type="radio" name="status" value="ed" />has been payment</td>
+
+			</tr>
+			<tr>
+				<td>comment:</td>
+				<td><textarea cols="20" rows="5"></textarea></td>
 
 			</tr>
 			<tr>

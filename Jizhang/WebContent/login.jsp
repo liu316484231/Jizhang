@@ -28,16 +28,6 @@
 			</tr>
 		</table>
 	</form>
-	<table border="1px solid red">
-	<%for(int i=0;i<10;i++){%>
-		<tr>
-			<td><%=i %></td>
-			<td>bb</td>
-			<td>cc</td>
-			<td>dd</td>
-		</tr>
-	<%} %>
 	
-	</table>
 </body>
 </html>

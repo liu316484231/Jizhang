@@ -9,6 +9,24 @@
 <body>
   welcome:<%=session.getAttribute("name") %><br/>
   your account lists:
+  <a href="jizhang.jsp">back to add another entry</a>&nbsp;&nbsp;&nbsp;&nbsp;
  <a href="login.jsp">log out</a>
+ <table border="1px solid red">
+	<%for(int i=0;i<10;i++){%>
+		<tr>
+			<td><%=i+1 %></td>
+			<td>bb</td>
+			<td>cc</td>
+			<td>dd</td>
+			<td>bb</td>
+			<td>cc</td>
+			<td>dd</td>
+			<td>bb</td>
+			<td>cc</td>
+			<td>dd</td>
+		</tr>
+	<%} %>
+	
+	</table>
 </body>
 </html>
