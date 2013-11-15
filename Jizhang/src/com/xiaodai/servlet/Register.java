@@ -26,7 +26,15 @@ public class Register extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String userid = request.getParameter("id");
+		String userpwd = request.getParameter("pwd");
+		String useremail = request.getParameter("email");
+		String userphone = request.getParameter("phone");
+		
+		request.getSession().setAttribute("name", userid);
+		//response.getWriter().write("register successfully.wait for skip..");
+		response.sendRedirect("/Jizhang/tiaozhuan.html");
+		
 	}
 
 	/**
@@ -34,6 +42,7 @@ public class Register extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doGet(request,response);
 	}
 
 }

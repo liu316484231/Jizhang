@@ -19,6 +19,7 @@
 	welcome:<%=session.getAttribute("name") %>
 	
 	<form method="post" action="chakan.jsp">
+	 <a href="login.jsp">log out</a>
 		<table>
 		
 			<tr>
