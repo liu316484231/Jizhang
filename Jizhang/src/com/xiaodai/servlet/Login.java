@@ -1,11 +1,14 @@
 package com.xiaodai.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.xiaodai.dao.DBUtil;
 
 /**
  * Servlet implementation class Login
@@ -30,7 +33,7 @@ public class Login extends HttpServlet {
 		
 		String name = request.getParameter("id");
 		String password = request.getParameter("pwd");
-		if(name.equals("admin")&&password.equals("123")){
+		if(DBUtil.checkLogin(name,password)){
 			response.sendRedirect("jizhang.jsp");
 			//response.getWriter().write("login success");
 			request.getSession().setAttribute("name", name);

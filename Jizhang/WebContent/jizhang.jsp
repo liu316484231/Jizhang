@@ -16,8 +16,14 @@
 <title>Jizhang</title>
 </head>
 <body>
+
 	welcome:<%=session.getAttribute("name") %>
-	
+	<%
+		String name = (String)session.getAttribute("name"); 
+		if(name==null||name.trim().equals("")){
+			response.sendRedirect("login.jsp");
+		}
+	%>
 	<form method="post" action="chakan.jsp">
 	 <a href="login.jsp">log out</a>
 		<table>
@@ -76,7 +82,7 @@
 			</tr>
 			<tr>
 				<td>status:</td>
-				<td><input type="radio" name="status" value="ing" />in the payment</td>
+				<td><input type="radio" name="status" value="ing" checked="checked" />in the payment</td>
 				<td><input type="radio" name="status" value="ed" />has been payment</td>
 
 			</tr>

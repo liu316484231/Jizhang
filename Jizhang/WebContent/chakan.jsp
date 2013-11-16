@@ -7,6 +7,12 @@
 <title>details</title>
 </head>
 <body>
+	<%
+		String name = (String)session.getAttribute("name"); 
+		if(name==null||name.trim().equals("")){
+			response.sendRedirect("login.jsp");
+		}
+	%>
   welcome:<%=session.getAttribute("name") %><br/>
   your account lists:
   <a href="jizhang.jsp">back to add another entry</a>&nbsp;&nbsp;&nbsp;&nbsp;
