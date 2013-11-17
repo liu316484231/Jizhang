@@ -1,6 +1,8 @@
 package com.xiaodai.bean;
 
-import java.util.Date;
+import java.sql.Date;
+
+
 
 public class UserJizhangBean {
 	private String username;

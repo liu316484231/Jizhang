@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <link type="text/css" href="css/style.css" rel="stylesheet"/>
 <title>login</title>
 </head>
@@ -17,11 +18,11 @@
 		<table>
 			<tr>
 				<td>id:</td>
-				<td><input type="text" name="id" /></td>
+				<td><input type="text" name="id"  id="id"/></td>
 			</tr>
 			<tr>
 				<td>password:</td>
-				<td><input type="password" name="pwd" /></td>
+				<td><input type="password" name="pwd" id="pwd"/></td>
 			</tr>
 			<tr>
 				<td ><input type="submit" value="login" /></td>
@@ -31,4 +32,7 @@
 	</form>
 	
 </body>
+<script>
+
+</script>
 </html>

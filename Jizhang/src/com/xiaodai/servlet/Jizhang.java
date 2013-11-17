@@ -1,15 +1,23 @@
 package com.xiaodai.servlet;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.text.ParseException;
+
+
+
+
+
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.xiaodai.bean.UserJizhangBean;
+import com.xiaodai.dao.JizhangDBUtil;
 
 /**
  * Servlet implementation class Jizhang
@@ -37,14 +45,14 @@ public class Jizhang extends HttpServlet {
 		Date date = null;
 		try {
 			if(!request.getParameter("date").trim().equals("")){
-				date = sdf.parse(request.getParameter("date"));
+				date = new java.sql.Date(sdf.parse(request.getParameter("date")).getTime());
 			}
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		int money = 0;
 		if(!request.getParameter("money").trim().equals("")){
-			Integer.parseInt(request.getParameter("money"));
+			money = Integer.parseInt(request.getParameter("money"));
 		}
 		double yinterest = 0;
 		if(request.getParameter("interest1").equals("month")&&!request.getParameter("interest").trim().equals("")){
@@ -54,11 +62,11 @@ public class Jizhang extends HttpServlet {
 		}
 		double bonus = 0;
 		if(!request.getParameter("bonus").trim().equals("")){
-			Double.parseDouble(request.getParameter("bonus"));
+			bonus = Double.parseDouble(request.getParameter("bonus"));
 		}
 		double management = 0;
 		if(!request.getParameter("management").trim().equals("")){
-			Double.parseDouble(request.getParameter("management"));
+			management = Double.parseDouble(request.getParameter("management"));
 		}
 		int durationmonths = 0;
 		int durationdays = 0;
@@ -80,20 +88,37 @@ public class Jizhang extends HttpServlet {
 		String status = request.getParameter("status");
 		String comment = request.getParameter("comment");
 		
-//		System.out.println(username);
-//		System.out.println(websitename);
-//		System.out.println(account);
-//		System.out.println(date);
-//		System.out.println(money);
-//		System.out.println(yinterest);
-//		System.out.println(bonus);
-//		System.out.println(management);
-//		System.out.println(durationmonths);
-//		System.out.println(durationdays);
-//		System.out.println(repaymentmode);
-//		System.out.println(status);
-//		System.out.println(comment);
+		System.out.println(username);
+		System.out.println(websitename);
+		System.out.println(account);
+		System.out.println(date);
+		System.out.println(money);
+		System.out.println(yinterest);
+		System.out.println(bonus);
+		System.out.println(management);
+		System.out.println(durationmonths);
+		System.out.println(durationdays);
+		System.out.println(repaymentmode);
+		System.out.println(status);
+		System.out.println(comment);
 		
+		UserJizhangBean form = new UserJizhangBean();
+		form.setUsername(username);
+		form.setWebsitename(websitename);
+		form.setAccount(account);
+		form.setDate(date);
+		form.setMoney(money);
+		form.setInterest(yinterest);
+		form.setBonus(bonus);
+		form.setManagement(management);
+		form.setDurationmonths(durationmonths);
+		form.setDurationdays(durationdays);
+		form.setRepaymentmode(repaymentmode);
+		form.setStatus(status);
+		form.setComment(comment);
+		JizhangDBUtil.insert(form);
+		
+		response.sendRedirect("chakan.jsp");
 		
 	}
 

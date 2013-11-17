@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link type="text/css" href="css/style.css" rel="stylesheet"/>
- <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script>
@@ -27,7 +27,7 @@
 	%>
 	<br/>
 	 <a href="login.jsp">log out</a>
-	<div style="margin:0 auto;border:1px solid black;width:500px;">
+	<div style="margin:0 auto;border:1px solid red;width:500px;">
 	<form method="post" action="/Jizhang/jizhang">
 	
 		<table>
@@ -108,5 +108,6 @@
 
 	</form>
 	</div>
+	<a href="chakan.jsp">view my list</a>
 </body>
 </html>

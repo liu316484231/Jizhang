@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link type="text/css" href="css/style.css" rel="stylesheet"/>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <title>register</title>
 </head>
 <body>
@@ -12,19 +13,19 @@
 		<table>
 			<tr>
 				<td>id:</td>
-				<td><input type="text" name="id" /></td>
+				<td><input type="text" name="id" id="id" /></td>
 			</tr>
 			<tr>
 				<td>password:</td>
-				<td><input type="password" name="pwd" /></td>
+				<td><input type="password" name="pwd" id="pwd"/></td>
 			</tr>
 				<tr>
 				<td>email:</td>
-				<td><input type="text" name="email" /></td>
+				<td><input type="text" name="email" id="email"/></td>
 			</tr>
 				<tr>
 				<td>phone:</td>
-				<td><input type="text" name="phone" /></td>
+				<td><input type="text" name="phone" id="phone"/></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="submit" /></td>
@@ -33,4 +34,8 @@
 	</form>
 
 </body>
+
+<script>
+
+</script>
 </html>
