@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link type="text/css" href="css/style.css" rel="stylesheet"/>
  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -24,8 +25,11 @@
 			response.sendRedirect("login.jsp");
 		}
 	%>
-	<form method="post" action="chakan.jsp">
+	<br/>
 	 <a href="login.jsp">log out</a>
+	<div style="margin:0 auto;border:1px solid black;width:500px;">
+	<form method="post" action="/Jizhang/jizhang">
+	
 		<table>
 		
 			<tr>
@@ -65,14 +69,14 @@
 				<td>duration:</td>
 				<td><input type="text" name="duration" /></td>
 				<td>
-					<input type="radio" name="dura" value="month" />day
-					<input type="radio" name="dura" value="year" checked="checked"/>month
+					<input type="radio" name="dura" value="day" />day
+					<input type="radio" name="dura" value="month" checked="checked"/>month
 					
 				</td>
 			</tr>
 			<tr>
 				<td>type:</td>
-				<td><select>
+				<td><select name="type">
 						<option value="1">month</option>
 						<option value="2">year</option>
 						<option value="3">season</option>
@@ -88,15 +92,21 @@
 			</tr>
 			<tr>
 				<td>comment:</td>
-				<td><textarea cols="20" rows="5"></textarea></td>
+				<td><textarea cols="20" rows="5" name="comment"></textarea></td>
 
 			</tr>
 			<tr>
-				<td rowspan="2"><input type="submit" value="submit" /></td>
+				<td>income:</td>
+				<td style="color:red" id="income">1000</td>
+
+			</tr>
+			<tr>
+				<td colspan="4"><input type="submit" value="submit" /></td>
 			</tr>
 		</table>
 
 
 	</form>
+	</div>
 </body>
 </html>

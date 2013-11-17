@@ -8,9 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.xiaodai.bean.UserBean;
 import com.xiaodai.dao.DBUtil;
-
-import coml.xiaodai.bean.UserBean;
 
 /**
  * Servlet implementation class Register

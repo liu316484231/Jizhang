@@ -1,4 +1,4 @@
-package coml.xiaodai.bean;
+package com.xiaodai.bean;
 
 import java.util.Date;
 

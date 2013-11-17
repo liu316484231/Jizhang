@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link type="text/css" href="css/style.css" rel="stylesheet"/>
 <title>register</title>
 </head>
 <body>
@@ -26,7 +27,7 @@
 				<td><input type="text" name="phone" /></td>
 			</tr>
 			<tr>
-				<td rowspan="2"><input type="submit" value="submit" /></td>
+				<td colspan="2"><input type="submit" value="submit" /></td>
 			</tr>
 		</table>
 	</form>

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
-import coml.xiaodai.bean.UserBean;
+import com.xiaodai.bean.UserBean;
 
 public class DBUtil {
 	private static String driver = "com.mysql.jdbc.Driver";
