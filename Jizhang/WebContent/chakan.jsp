@@ -12,6 +12,7 @@ body {
 	text-align: center;
 	font-weight: bold;
 	font-family: KaiTi;
+	font-size:16px;
 }
 
 #id,#pwd {
@@ -30,6 +31,9 @@ body {
 	margin: 0 auto;
 	margin-top: 10px;
 	background-color: #f5f5f5;
+}
+table{
+	margin:0 auto;
 }
 </style>
 </head>

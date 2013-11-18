@@ -24,9 +24,8 @@ body {
 	font-family: KaiTi;
 }
 
-#id,#pwd {
-	width: 200px;
-	height: 20px;
+#website,#account,#datepicker,#money,#interest,#bonus,#management,#duration,#type {
+	
 }
 
 #submit {
@@ -43,6 +42,12 @@ body {
 }
 span{
 	color:red;
+}
+td{
+	text-align:left;
+}
+.center{
+	text-align:center;
 }
 </style>
 <title>记帐</title>
@@ -64,23 +69,23 @@ span{
 		<table>
 		
 			<tr>
-				<td>平台<span>*</span>:</td>
+				<td class="center">平台<span>*</span>:</td>
 				<td><input type="text" name="website" id="website"/></td>
 			</tr>
 			<tr>
-				<td>平台帐号<span>*</span>:</td>
+				<td class="center">平台帐号<span>*</span>:</td>
 				<td><input type="text" name="account" id="account"/></td>
 			</tr>
 			<tr>
-				<td>借出日期<span>*</span>:</td>
+				<td class="center">借出日期<span>*</span>:</td>
 				<td><input type="text" name="date" id="datepicker"/></td>
 			</tr>
 			<tr>
-				<td>借出金额<span>*</span>:</td>
+				<td class="center">借出金额<span>*</span>:</td>
 				<td><input type="text" name="money" id="money"/></td>
 			</tr>
 			<tr>
-				<td>利率<span>*</span>:</td>
+				<td class="center">利率<span>*</span>:</td>
 				<td><input type="text" name="interest" id="interest"/>%</td>
 				<td>
 					<input type="radio" name="interest1" value="month" checked="checked"/>日利率
@@ -89,17 +94,17 @@ span{
 				</td>
 			</tr>
 			<tr>
-				<td>奖励:</td>
+				<td class="center">奖励:</td>
 				<td><input type="text" name="bonus" id="bonus"/>%</td>
 				<td>(选填)</td>
 			</tr>
 			<tr>
-				<td>管理费:</td>
+				<td class="center">管理费:</td>
 				<td><input type="text" name="management" id="management"/>%</td>
 				<td>(选填)</td>
 			</tr>
 			<tr>
-				<td>借出期限<span>*</span>:</td>
+				<td class="center">借出期限<span>*</span>:</td>
 				<td><input type="text" name="duration" id="duration"/></td>
 				<td>
 					<input type="radio" name="dura" value="day" />天
@@ -108,8 +113,8 @@ span{
 				</td>
 			</tr>
 			<tr>
-				<td>还款类型<span>*</span>:</td>
-				<td><select name="type">
+				<td class="center">还款类型<span>*</span>:</td>
+				<td><select name="type" id="type">
 						<option value="1">按月还款</option>
 						<option value="2">到期还款</option>
 						<option value="3">按季还款</option>
@@ -118,23 +123,23 @@ span{
 
 			</tr>
 			<tr>
-				<td>状态<span>*</span>:</td>
+				<td class="center">状态<span>*</span>:</td>
 				<td><input type="radio" name="status" value="ing" checked="checked" />还款中</td>
 				<td><input type="radio" name="status" value="ed" />已还完</td>
 
 			</tr>
 			<tr>
-				<td>备注(选填):</td>
+				<td class="center">备注(选填):</td>
 				<td><textarea cols="20" rows="5" name="comment" id="comment"></textarea></td>
 
 			</tr>
 			<tr>
-				<td>总收益(含奖励):</td>
+				<td class="center">总收益(含奖励):</td>
 				<td style="color:red" id="income">1000</td>
 
 			</tr>
 			<tr>
-				<td colspan="4"><input type="submit" value="提交记账" /></td>
+				<td colspan="4" class="center"><input type="submit" value="提交记账" /></td>
 			</tr>
 		</table>
 
