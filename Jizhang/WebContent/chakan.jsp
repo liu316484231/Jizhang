@@ -6,13 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link type="text/css" href="css/style.css" rel="stylesheet"/>
-<title>details</title>
+<title>记帐明细</title>
 </head>
 <body>
 	<%
 		String name = (String)session.getAttribute("name"); 
+		System.out.println(name);
 		if(name==null||name.trim().equals("")){
 			response.sendRedirect("login.jsp");
+			return;
 		}
 		ArrayList <UserJizhangBean> list = JizhangDBUtil.showUserJizhang(name);
 	%>

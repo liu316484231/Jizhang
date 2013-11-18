@@ -7,9 +7,70 @@
 <link type="text/css" href="css/style.css" rel="stylesheet"/>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <title>注册</title>
+<script>
+	function validate(){
+			var user = $("#id").val();
+			var pwd = $("#pwd").val();
+			var email = $("#email").val();
+			var phone = $("#phone").val();
+			var pattern = new RegExp("[^0-9A-Za-z]");
+			var emailpattern = /^[-_A-Za-z0-9]+@([_A-Za-z0-9]+.)+[A-Za-z0-9]{2,3}$/;
+			var phonenum = new RegExp("[^0-9]");
+			if(user.trim()==""){
+				alert("用户名不能为空");
+				$("#id").focus();
+				return false;
+			}
+			if(pwd.trim()==""){
+				alert("密码不能为空");
+				$("#pwd").focus();
+				return false;
+			}
+			if(user.length<3||user.length>20){
+				alert("用户名长度为3-20位数字和字母组成");
+				$("#id").val("");
+				$("#id").focus();
+				return false;
+			}
+			if(pwd.length<6||pwd.length>20){
+				alert("密码长度为6-20位数字和字母组成");
+				$("#pwd").val("");
+				$("#pwd").focus();
+				return false;
+			}
+			if(pattern.test(user)){
+				alert("用户名只能由数字和字母组成");
+				$("#id").val("");
+				$("#id").focus();
+				return false;
+			}
+			if(pattern.test(pwd)){
+				alert("密码只能由数字和字母组成");
+				$("#pwd").val("");
+				$("#pwd").focus();
+				return false;
+			}
+			if(email.trim()!=""&&!emailpattern.test(email)){
+				alert("邮箱格式不正确");
+				$("#email").val("");
+				$("#email").focus();
+				return false;
+			}
+			if(phone.trim()!=""&&phonenum.test(phone)){
+				alert("电话只能由数字组成");
+				$("#phone").val("");
+				$("#phone").focus();
+				return false;
+			}
+			return true;
+			
+		}
+
+
+</script>
 </head>
 <body>
-	<form id="login" method="post" action="/Jizhang/register">
+	<form id="login" method="post" action="/Jizhang/register" onsubmit="return validate()">
 		<table>
 			<tr>
 				<td>用户名:</td>
