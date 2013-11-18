@@ -11,6 +11,7 @@
 	function validate(){
 			var user = $("#id").val();
 			var pwd = $("#pwd").val();
+			var pwd2 = $("#pwd2").val();
 			var email = $("#email").val();
 			var phone = $("#phone").val();
 			var pattern = new RegExp("[^0-9A-Za-z]");
@@ -50,6 +51,13 @@
 				$("#pwd").focus();
 				return false;
 			}
+			if(pwd!=pwd2){
+				alert("俩次输入的密码不同");
+				$("#pwd").val("");
+				$("#pwd2").val("");
+				$("#pwd").focus();
+				return false;
+			}
 			if(email.trim()!=""&&!emailpattern.test(email)){
 				alert("邮箱格式不正确");
 				$("#email").val("");
@@ -72,35 +80,26 @@
 body {
 	text-align: center;
 	font-weight: bold;
-	font-family:KaiTi;
+	font-family: KaiTi;
 }
 
-#id,#pwd,#email,#phone {
-	background-color: blue;
-	width:200px;
-	height:20px;
-	color:red;
-	border-color:red;
+#id,#pwd,#pwd2,#email,#phone {
+	width: 200px;
+	height: 20px;
 }
 
-#submit{
-	background-color: blue;
-	color:red;
-	font-family:KaiTi;
-	width:60px;
-	height:30px;
-	border-color:red;
+#submit {
+	font-family: KaiTi;
+	width: 60px;
+	height: 30px;
 }
 
 #container {
-	border:1px solid black;
-	width:350px;	
-	margin:0 auto;
-	margin-top:20%;
-	background-color:yellow;
-}
-td{
-	width:200px;
+	border: 1px solid #cccccc;
+	width: 350px;
+	margin: 0 auto;
+	margin-top: 20%;
+	background-color: #f5f5f5;
 }
 </style>
 </head>
@@ -115,6 +114,10 @@ td{
 			<tr>
 				<td>密码:</td>
 				<td><input type="password" name="pwd" id="pwd"/></td>
+			</tr>
+			<tr>
+				<td>确认密码:</td>
+				<td><input type="password" name="pwd2" id="pwd2"/></td>
 			</tr>
 				<tr>
 				<td>邮箱(选填):</td>

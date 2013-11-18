@@ -49,6 +49,11 @@
 			return true;
 			
 		}
+	$(function(){
+		$("#submit").mouseover(function(){
+			$(this).css("background-color:white");
+		});
+	});
 
 
 </script>
@@ -56,28 +61,25 @@
 body {
 	text-align: center;
 	font-weight: bold;
-	font-family:KaiTi;
+	font-family: KaiTi;
 }
 
 #id,#pwd {
-	background-color: blue;
-	width:200px;
-	height:20px;
-	color:red;
+	width: 200px;
+	height: 20px;
 }
 
-#submit{
-	background-color: blue;
-	color:red;
-	font-family:KaiTi;
+#submit {
+	font-family: KaiTi;
+	hover: cursor;
 }
 
 #container {
-	border:1px solid black;
-	width:300px;	
-	margin:0 auto;
-	margin-top:20%;
-	background-color:yellow;
+	border: 1px solid #cccccc;
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 20%;
+	background-color: #f5f5f5;
 }
 </style>
 </head>
