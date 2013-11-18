@@ -7,6 +7,31 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link type="text/css" href="css/style.css" rel="stylesheet"/>
 <title>记帐明细</title>
+<style>
+body {
+	text-align: center;
+	font-weight: bold;
+	font-family: KaiTi;
+}
+
+#id,#pwd {
+	width: 200px;
+	height: 20px;
+}
+
+#submit {
+	font-family: KaiTi;
+	hover: cursor;
+}
+
+#container {
+	border: 1px solid #cccccc;
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 10px;
+	background-color: #f5f5f5;
+}
+</style>
 </head>
 <body>
 	<%
@@ -20,12 +45,14 @@
 	%>
   欢迎:<%=session.getAttribute("name") %><br/>
   您的记帐明细如下:
+  <br/>
+  <br/>
   <a href="jizhang.jsp">返回继续添加记帐</a>&nbsp;&nbsp;&nbsp;&nbsp;
  <a href="login.jsp">退出登录</a>
  <br/>
  <br/>
- <br/>
- <table style="border:1px solid red;margin:0 auto;" border="solid">
+ <div id="container">
+ <table border="1px solid black">
  	<tr>
  		<th>序号</th>
  		<th>平台</th>
@@ -40,6 +67,7 @@
  		<th>还款方式</th>
  		<th>状态</th>
  		<th>备注</th>
+ 		<th>操作</th>
  		
  	</tr>
 	<%for(int i=0;i<list.size();i++){%>
@@ -57,9 +85,11 @@
 			<td><%=list.get(i).getRepaymentmode() %></td>
 			<td><%=list.get(i).getStatus() %></td>
 			<td><%=list.get(i).getComment() %></td>
+			<td><a href="#">修改</a><br/><a href="#">删除</a></td>
 		</tr>
 	<%} %>
 	
 	</table>
+	</div>
 </body>
 </html>

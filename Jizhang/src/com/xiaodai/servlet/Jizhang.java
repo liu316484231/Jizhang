@@ -56,7 +56,7 @@ public class Jizhang extends HttpServlet {
 		}
 		double yinterest = 0;
 		if(request.getParameter("interest1").equals("month")&&!request.getParameter("interest").trim().equals("")){
-			yinterest = Double.parseDouble(request.getParameter("interest"))*12;
+			yinterest = Double.parseDouble(request.getParameter("interest"))*365;
 		}else if(request.getParameter("interest1").equals("year")&&!request.getParameter("interest").trim().equals("")){
 			yinterest = Double.parseDouble(request.getParameter("interest"));
 		}

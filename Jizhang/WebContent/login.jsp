@@ -78,7 +78,7 @@ body {
 	border: 1px solid #cccccc;
 	width: 300px;
 	margin: 0 auto;
-	margin-top: 20%;
+	margin-top: 10%;
 	background-color: #f5f5f5;
 }
 </style>
@@ -90,6 +90,8 @@ body {
 		}
 	%>
 	<div id="container">
+	<h3>登陆小贷记账</h3>
+	<hr/>
 	<form id="login" method="post" action="/Jizhang/login" onsubmit="return validate()">
 		<table>
 			<tr>

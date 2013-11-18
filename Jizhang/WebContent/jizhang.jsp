@@ -13,7 +13,38 @@
 	$(function() {
 		$("#datepicker").datepicker();
 	});
+	function validate(){
+		
+	}
 </script>
+<style>
+body {
+	text-align: center;
+	font-weight: bold;
+	font-family: KaiTi;
+}
+
+#id,#pwd {
+	width: 200px;
+	height: 20px;
+}
+
+#submit {
+	font-family: KaiTi;
+	hover: cursor;
+}
+
+#container {
+	border: 1px solid #cccccc;
+	width: 500px;
+	margin: 0 auto;
+	margin-top: 10px;
+	background-color: #f5f5f5;
+}
+span{
+	color:red;
+}
+</style>
 <title>记帐</title>
 </head>
 <body>
@@ -27,32 +58,32 @@
 	%>
 	<br/>
 	 <a href="login.jsp">退出登陆</a>
-	<div style="margin:0 auto;border:1px solid red;width:500px;">
-	<form method="post" action="/Jizhang/jizhang">
+	<div id="container">
+	<form method="post" action="/Jizhang/jizhang" onsubmit="return validate()">
 	
 		<table>
 		
 			<tr>
-				<td>平台:</td>
+				<td>平台<span>*</span>:</td>
 				<td><input type="text" name="website" id="website"/></td>
 			</tr>
 			<tr>
-				<td>平台帐号:</td>
+				<td>平台帐号<span>*</span>:</td>
 				<td><input type="text" name="account" id="account"/></td>
 			</tr>
 			<tr>
-				<td>借出日期:</td>
+				<td>借出日期<span>*</span>:</td>
 				<td><input type="text" name="date" id="datepicker"/></td>
 			</tr>
 			<tr>
-				<td>借出金额:</td>
+				<td>借出金额<span>*</span>:</td>
 				<td><input type="text" name="money" id="money"/></td>
 			</tr>
 			<tr>
-				<td>利率:</td>
+				<td>利率<span>*</span>:</td>
 				<td><input type="text" name="interest" id="interest"/>%</td>
 				<td>
-					<input type="radio" name="interest1" value="month" checked="checked"/>月利率
+					<input type="radio" name="interest1" value="month" checked="checked"/>日利率
 					<input type="radio" name="interest1" value="year" />年利率
 					
 				</td>
@@ -60,13 +91,15 @@
 			<tr>
 				<td>奖励:</td>
 				<td><input type="text" name="bonus" id="bonus"/>%</td>
+				<td>(选填)</td>
 			</tr>
 			<tr>
 				<td>管理费:</td>
 				<td><input type="text" name="management" id="management"/>%</td>
+				<td>(选填)</td>
 			</tr>
 			<tr>
-				<td>借出期限:</td>
+				<td>借出期限<span>*</span>:</td>
 				<td><input type="text" name="duration" id="duration"/></td>
 				<td>
 					<input type="radio" name="dura" value="day" />天
@@ -75,7 +108,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>还款类型:</td>
+				<td>还款类型<span>*</span>:</td>
 				<td><select name="type">
 						<option value="1">按月还款</option>
 						<option value="2">到期还款</option>
@@ -85,13 +118,13 @@
 
 			</tr>
 			<tr>
-				<td>状态:</td>
+				<td>状态<span>*</span>:</td>
 				<td><input type="radio" name="status" value="ing" checked="checked" />还款中</td>
 				<td><input type="radio" name="status" value="ed" />已还完</td>
 
 			</tr>
 			<tr>
-				<td>备注:</td>
+				<td>备注(选填):</td>
 				<td><textarea cols="20" rows="5" name="comment" id="comment"></textarea></td>
 
 			</tr>
@@ -101,13 +134,14 @@
 
 			</tr>
 			<tr>
-				<td colspan="4"><input type="submit" value="submit" /></td>
+				<td colspan="4"><input type="submit" value="提交记账" /></td>
 			</tr>
 		</table>
 
 
 	</form>
 	</div>
-	<a href="chakan.jsp">view my list</a>
+	<br/>
+	<a href="chakan.jsp">查看我的记账记录</a>
 </body>
 </html>

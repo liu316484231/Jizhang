@@ -98,13 +98,15 @@ body {
 	border: 1px solid #cccccc;
 	width: 350px;
 	margin: 0 auto;
-	margin-top: 20%;
+	margin-top: 10%;
 	background-color: #f5f5f5;
 }
 </style>
 </head>
 <body>
 <div id="container">
+	<h3>注册小贷记账</h3>
+	<hr/>
 	<form id="login" method="post" action="/Jizhang/register" onsubmit="return validate()">
 		<table>
 			<tr>
