@@ -68,8 +68,44 @@
 
 
 </script>
+<style>
+body {
+	text-align: center;
+	font-weight: bold;
+	font-family:KaiTi;
+}
+
+#id,#pwd,#email,#phone {
+	background-color: blue;
+	width:200px;
+	height:20px;
+	color:red;
+	border-color:red;
+}
+
+#submit{
+	background-color: blue;
+	color:red;
+	font-family:KaiTi;
+	width:60px;
+	height:30px;
+	border-color:red;
+}
+
+#container {
+	border:1px solid black;
+	width:350px;	
+	margin:0 auto;
+	margin-top:20%;
+	background-color:yellow;
+}
+td{
+	width:200px;
+}
+</style>
 </head>
 <body>
+<div id="container">
 	<form id="login" method="post" action="/Jizhang/register" onsubmit="return validate()">
 		<table>
 			<tr>
@@ -89,11 +125,11 @@
 				<td><input type="text" name="phone" id="phone"/></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="提交" /></td>
+				<td colspan="2"><input type="submit" value="提交" id="submit"/></td>
 			</tr>
 		</table>
 	</form>
-
+</div>
 </body>
 
 <script>

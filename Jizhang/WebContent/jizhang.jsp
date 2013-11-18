@@ -34,11 +34,11 @@
 		
 			<tr>
 				<td>平台:</td>
-				<td><input type="text" name="website" /></td>
+				<td><input type="text" name="website" id="website"/></td>
 			</tr>
 			<tr>
 				<td>平台帐号:</td>
-				<td><input type="text" name="account" /></td>
+				<td><input type="text" name="account" id="account"/></td>
 			</tr>
 			<tr>
 				<td>借出日期:</td>
@@ -46,11 +46,11 @@
 			</tr>
 			<tr>
 				<td>借出金额:</td>
-				<td><input type="text" name="money" /></td>
+				<td><input type="text" name="money" id="money"/></td>
 			</tr>
 			<tr>
 				<td>利率:</td>
-				<td><input type="text" name="interest" />%</td>
+				<td><input type="text" name="interest" id="interest"/>%</td>
 				<td>
 					<input type="radio" name="interest1" value="month" checked="checked"/>月利率
 					<input type="radio" name="interest1" value="year" />年利率
@@ -59,15 +59,15 @@
 			</tr>
 			<tr>
 				<td>奖励:</td>
-				<td><input type="text" name="bonus" />%</td>
+				<td><input type="text" name="bonus" id="bonus"/>%</td>
 			</tr>
 			<tr>
 				<td>管理费:</td>
-				<td><input type="text" name="management" />%</td>
+				<td><input type="text" name="management" id="management"/>%</td>
 			</tr>
 			<tr>
 				<td>借出期限:</td>
-				<td><input type="text" name="duration" /></td>
+				<td><input type="text" name="duration" id="duration"/></td>
 				<td>
 					<input type="radio" name="dura" value="day" />天
 					<input type="radio" name="dura" value="month" checked="checked"/>月
@@ -92,7 +92,7 @@
 			</tr>
 			<tr>
 				<td>备注:</td>
-				<td><textarea cols="20" rows="5" name="comment"></textarea></td>
+				<td><textarea cols="20" rows="5" name="comment" id="comment"></textarea></td>
 
 			</tr>
 			<tr>

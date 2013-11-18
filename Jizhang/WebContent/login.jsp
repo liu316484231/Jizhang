@@ -52,6 +52,34 @@
 
 
 </script>
+<style>
+body {
+	text-align: center;
+	font-weight: bold;
+	font-family:KaiTi;
+}
+
+#id,#pwd {
+	background-color: blue;
+	width:200px;
+	height:20px;
+	color:red;
+}
+
+#submit{
+	background-color: blue;
+	color:red;
+	font-family:KaiTi;
+}
+
+#container {
+	border:1px solid black;
+	width:300px;	
+	margin:0 auto;
+	margin-top:20%;
+	background-color:yellow;
+}
+</style>
 </head>
 <body>
 	<%
@@ -59,6 +87,7 @@
 			session.setAttribute("name", null);
 		}
 	%>
+	<div id="container">
 	<form id="login" method="post" action="/Jizhang/login" onsubmit="return validate()">
 		<table>
 			<tr>
@@ -70,12 +99,14 @@
 				<td><input type="password" name="pwd" id="pwd"/></td>
 			</tr>
 			<tr>
-				<td ><input type="submit" value="登陆" id="submit" /></td>
-				<td ><a href="register.jsp">注册</a></td>
+				<td colspan="2"><input type="submit" value="登陆" id="submit" />&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="register.jsp">注册</a></td>
+				
 			</tr>
 		</table>
 	</form>
-	
+	</div>
+
 </body>
 
 </html>
