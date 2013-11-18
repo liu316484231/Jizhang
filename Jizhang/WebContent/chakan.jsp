@@ -16,28 +16,28 @@
 		}
 		ArrayList <UserJizhangBean> list = JizhangDBUtil.showUserJizhang(name);
 	%>
-  welcome:<%=session.getAttribute("name") %><br/>
-  your account lists:
-  <a href="jizhang.jsp">back to add another entry</a>&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="login.jsp">log out</a>
+  欢迎:<%=session.getAttribute("name") %><br/>
+  您的记帐明细如下:
+  <a href="jizhang.jsp">返回继续添加记帐</a>&nbsp;&nbsp;&nbsp;&nbsp;
+ <a href="login.jsp">退出登录</a>
  <br/>
  <br/>
  <br/>
  <table style="border:1px solid red;margin:0 auto;" border="solid">
  	<tr>
- 		<th>num</th>
- 		<th>website name</th>
- 		<th>account</th>
- 		<th>date</th>
- 		<th>money</th>
- 		<th>year interest rate</th>
- 		<th>bonus rate</th>
- 		<th>management rate</th>
- 		<th>duration months</th>
- 		<th>duration days</th>
- 		<th>repayment mode</th>
- 		<th>status</th>
- 		<th>comment</th>
+ 		<th>序号</th>
+ 		<th>平台</th>
+ 		<th>平台帐号</th>
+ 		<th>借出日期</th>
+ 		<th>借出金额</th>
+ 		<th>年利率</th>
+ 		<th>奖励</th>
+ 		<th>管理费</th>
+ 		<th>借出期限(月)</th>
+ 		<th>借出期限(天)</th>
+ 		<th>还款方式</th>
+ 		<th>状态</th>
+ 		<th>备注</th>
  		
  	</tr>
 	<%for(int i=0;i<list.size();i++){%>
@@ -46,12 +46,12 @@
 			<td><%=list.get(i).getWebsitename() %></td>
 			<td><%=list.get(i).getAccount() %></td>
 			<td><%=list.get(i).getDate() %></td>
-			<td><%=list.get(i).getMoney() %></td>
-			<td><%=list.get(i).getInterest() %></td>
-			<td><%=list.get(i).getBonus() %></td>
-			<td><%=list.get(i).getManagement() %></td>
-			<td><%=list.get(i).getDurationmonths() %></td>
-			<td><%=list.get(i).getDurationdays() %></td>
+			<td><%=list.get(i).getMoney() %>元</td>
+			<td><%=list.get(i).getInterest() %>%</td>
+			<td><%=list.get(i).getBonus() %>%</td>
+			<td><%=list.get(i).getManagement() %>%</td>
+			<td><%=list.get(i).getDurationmonths() %>月</td>
+			<td><%=list.get(i).getDurationdays() %>天</td>
 			<td><%=list.get(i).getRepaymentmode() %></td>
 			<td><%=list.get(i).getStatus() %></td>
 			<td><%=list.get(i).getComment() %></td>
