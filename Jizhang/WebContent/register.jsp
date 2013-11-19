@@ -81,6 +81,9 @@ body {
 	text-align: center;
 	font-weight: bold;
 	font-family: KaiTi;
+	margin:0px;
+	padding:0px;
+	background-image:url("image/back2.gif");
 }
 
 #id,#pwd,#pwd2,#email,#phone {
@@ -95,15 +98,43 @@ body {
 }
 
 #container {
-	border: 1px solid #cccccc;
+	position:relative;
+	top:15%;
+	margin:0 auto;
+	border: 5px solid #cccccc;
 	width: 350px;
-	margin: 0 auto;
-	margin-top: 10%;
 	background-color: #f5f5f5;
+}
+#wrapper{
+	margin:0 auto;
+	width:600px;
+	height:474px;
+	background-image:url("image/background.jpg");
+	margin-top:100px;
+	border: 3px solid black;
+}
+#footer{
+	position:absolute;
+	bottom:0px;
+	background-color:#2f2f2f;
+	width:100%;
+	height:100px;
+}
+#inner{
+	position:relative;
+	top:60px;
+	width:80%;
+	margin:0 auto;
+	color:white;
+	text-align:center;
+	font-family:宋体;
+	font-size:12px;
+	font-weight:normal;
 }
 </style>
 </head>
 <body>
+<div id="wrapper">
 <div id="container">
 	<h3>注册小贷记账</h3>
 	<hr/>
@@ -134,6 +165,15 @@ body {
 			</tr>
 		</table>
 	</form>
+</div>
+</div>
+<div id="footer">
+	<div id="inner">
+		关注我们&nbsp;&nbsp;&nbsp;&nbsp;关于我们&nbsp;&nbsp;&nbsp;&nbsp;诚聘英才&nbsp;&nbsp;&nbsp;&nbsp;使用说明<br/>
+		Copyright@小贷800
+	
+	</div>
+
 </div>
 </body>
 
