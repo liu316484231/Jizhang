@@ -51,9 +51,8 @@ table{
   您的记帐明细如下:
   <br/>
   <br/>
-  <a href="jizhang.jsp">返回继续添加记帐</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="jizhang.jsp">返回继续添加记帐</a>&nbsp;&nbsp;<a href="modifyuserinfo.jsp">个人中心</a>&nbsp;&nbsp;<a href="pingtai.jsp">平台管理</a>
  <a href="login.jsp">退出登录</a>
- <br/>
  <br/>
  <div id="container">
  <table border="1px solid black">

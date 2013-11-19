@@ -158,11 +158,11 @@ td{
 	<%
 		String name = (String)session.getAttribute("name"); 
 		if(name==null||name.trim().equals("")){
-			//response.sendRedirect("login.jsp");
+			response.sendRedirect("login.jsp");
 		}
 	%>
 	<br/>
-	 <a href="login.jsp">退出登陆</a>
+	 <a href="login.jsp">退出登陆</a>&nbsp;&nbsp;<a href="modifyuserinfo.jsp">个人中心</a>&nbsp;&nbsp;<a href="pingtai.jsp">平台管理</a>
 	<div id="container">
 	<form method="post" action="/Jizhang/jizhang" onsubmit="return validate()">
 	
