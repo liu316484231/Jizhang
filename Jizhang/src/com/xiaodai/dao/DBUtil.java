@@ -188,4 +188,80 @@ public class DBUtil {
 		}
 		
 	}
+	public static void update(UserBean user){
+		connect();
+		String sql = "update User set userpassword=?,useremail=?,userphone=? where username=?";
+		PreparedStatement st = null;
+		try {
+			st = (PreparedStatement) conn.prepareStatement(sql);
+		
+			st.setString(1, user.getPassword());
+			st.setString(4, user.getUsername());
+			
+			if(user.getEmail().equals("")){
+				st.setString(2, null);
+			}else{
+				st.setString(2, user.getEmail());
+			}
+			if(user.getPhone()==0){
+				st.setString(3,null);
+			}else{
+				st.setInt(3,user.getPhone());
+			}
+
+			st.executeUpdate();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				st.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			close();
+		}
+		
+	}
+	public static UserBean selectUser(String username){
+		connect();
+		String sql = "select *  from User where username = ?";
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		UserBean user = new UserBean();
+		int count = 0;
+		try {
+			st = (PreparedStatement) conn.prepareStatement(sql);
+			st.setString(1, username);
+			rs = st.executeQuery();
+			
+			while(rs.next()){
+				String password = rs.getString(3);
+				String email = rs.getString(4);
+				int phone = rs.getInt(5);
+				
+
+				user.setUsername(username);
+				user.setPassword(password);
+				user.setEmail(email);
+				user.setPhone(phone);
+				
+				break;
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				rs.close();
+				st.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			close();
+		}
+		return user;
+	}
 }

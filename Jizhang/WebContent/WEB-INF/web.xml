@@ -42,4 +42,31 @@
     <servlet-name>jizhang</servlet-name>
     <url-pattern>/jizhang</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>modifyuserinfo</servlet-name>
+    <servlet-class>com.xiaodai.servlet.ModifyUserInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>modifyuserinfo</servlet-name>
+    <url-pattern>/modifyuserinfo</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>deletejizhang</servlet-name>
+    <servlet-class>com.xiaodai.servlet.DeleteJizhang</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deletejizhang</servlet-name>
+    <url-pattern>/deletejizhang</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>modifyjizhang</servlet-name>
+    <servlet-class>com.xiaodai.servlet.ModifyJizhang</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>modifyjizhang</servlet-name>
+    <url-pattern>/modifyjizhang</url-pattern>
+  </servlet-mapping>
 </web-app>

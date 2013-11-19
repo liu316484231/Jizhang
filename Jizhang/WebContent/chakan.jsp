@@ -7,6 +7,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link type="text/css" href="css/style.css" rel="stylesheet"/>
 <title>记帐明细</title>
+	<%
+		String name = (String)session.getAttribute("name"); 
+		System.out.println(name);
+		if(name==null||name.trim().equals("")){
+			response.sendRedirect("login.jsp");
+			return;
+		}
+		ArrayList <UserJizhangBean> list = JizhangDBUtil.showUserJizhang(name);
+	%>
 <style>
 body {
 	text-align: center;
@@ -36,17 +45,18 @@ table{
 	margin:0 auto;
 }
 </style>
-</head>
-<body>
-	<%
-		String name = (String)session.getAttribute("name"); 
-		System.out.println(name);
-		if(name==null||name.trim().equals("")){
-			response.sendRedirect("login.jsp");
+<script>
+	function del(id){
+		if(window.confirm("确定删除该记账条目嘛，删除后不可恢复")){
+			document.location="/Jizhang/deletejizhang?id="+id; 
+		}else{
 			return;
 		}
-		ArrayList <UserJizhangBean> list = JizhangDBUtil.showUserJizhang(name);
-	%>
+	}
+</script>
+</head>
+<body>
+
   欢迎:<%=session.getAttribute("name") %><br/>
   您的记帐明细如下:
   <br/>
@@ -75,6 +85,10 @@ table{
  	</tr>
 	<%for(int i=0;i<list.size();i++){%>
 		<tr>
+		<%int index=list.get(i).getId(); %>
+		<% int id = list.get(i).getId(); 
+			System.out.println(id);
+		%>
 			<td><%=i+1 %></td>
 			<td><%=list.get(i).getWebsitename() %></td>
 			<td><%=list.get(i).getAccount() %></td>
@@ -88,11 +102,12 @@ table{
 			<td><%=list.get(i).getRepaymentmode() %></td>
 			<td><%=list.get(i).getStatus() %></td>
 			<td><%=list.get(i).getComment() %></td>
-			<td><a href="#">修改</a><br/><a href="#">删除</a></td>
+			<td><a href="#">修改</a><br/><a href="javascript:del(<%=list.get(i).getId() %>)">删除</a></td>
 		</tr>
 	<%} %>
 	
 	</table>
 	</div>
 </body>
+
 </html>

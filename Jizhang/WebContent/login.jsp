@@ -87,7 +87,7 @@ body {
 	width:600px;
 	height:474px;
 	background-image:url("image/background.jpg");
-	margin-top:100px;
+	margin-top:50px;
 	border: 3px solid black;
 }
 #footer{

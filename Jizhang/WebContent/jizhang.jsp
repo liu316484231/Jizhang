@@ -162,7 +162,7 @@ td{
 		}
 	%>
 	<br/>
-	 <a href="login.jsp">退出登陆</a>&nbsp;&nbsp;<a href="modifyuserinfo.jsp">个人中心</a>&nbsp;&nbsp;<a href="pingtai.jsp">平台管理</a>
+	 <a href="login.jsp">退出登陆</a>&nbsp;&nbsp;<a href="modifyuserinfo.jsp">个人中心</a>&nbsp;&nbsp;<a href="pingtai.jsp">平台管理</a>&nbsp;&nbsp;<a href="chakan.jsp">查看我的记账记录</a>
 	<div id="container">
 	<form method="post" action="/Jizhang/jizhang" onsubmit="return validate()">
 	
@@ -247,6 +247,6 @@ td{
 	</form>
 	</div>
 	<br/>
-	<a href="chakan.jsp">查看我的记账记录</a>
+	
 </body>
 </html>

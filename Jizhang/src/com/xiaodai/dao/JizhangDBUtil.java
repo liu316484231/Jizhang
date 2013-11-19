@@ -93,6 +93,7 @@ public class JizhangDBUtil {
 			rs = st.executeQuery();
 			while(rs.next()){
 				UserJizhangBean entry = new UserJizhangBean();
+				entry.setId(rs.getInt(1));
 				entry.setUsername(username);
 				entry.setWebsitename(rs.getString(3));
 				entry.setAccount(rs.getString(4));
@@ -116,5 +117,26 @@ public class JizhangDBUtil {
 		close();
 		return (ArrayList<UserJizhangBean>) list;
 	}
-
+	public static void delete(int id){
+		connect();
+		String sql = "delete from UserJizhang where id = ?";
+		PreparedStatement st = null;
+		try {
+			st = (PreparedStatement) conn.prepareStatement(sql);
+			st.setInt(1,id );
+			st.executeUpdate();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				st.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			close();
+		}
+		
+	}
 }

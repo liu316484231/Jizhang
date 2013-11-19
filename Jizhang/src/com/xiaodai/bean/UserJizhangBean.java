@@ -5,6 +5,13 @@ import java.sql.Date;
 
 
 public class UserJizhangBean {
+	private int id;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	private String username;
 	private String websitename;
 	private String account;

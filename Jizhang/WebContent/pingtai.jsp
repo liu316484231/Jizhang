@@ -23,7 +23,7 @@ body {
 	border: 1px solid #cccccc;
 	width: 300px;
 	margin: 0 auto;
-	margin-top: 10%;
+	margin-top: 10px;
 	background-color: #f5f5f5;
 }
 </style>
@@ -44,8 +44,15 @@ function validate(){
 </script>
 </head>
 <body>
+	欢迎:<%=session.getAttribute("name") %>
+	<%
+		String name = (String)session.getAttribute("name"); 
+		if(name==null||name.trim().equals("")){
+			//response.sendRedirect("login.jsp");
+		}
+	%><br/>
 	
-
+	 <a href="login.jsp">退出登陆</a>&nbsp;&nbsp;<a href="modifyuserinfo.jsp">个人中心</a>&nbsp;&nbsp;<a href="jizhang.jsp">快速记账</a>&nbsp;&nbsp;<a href="chakan.jsp">查看我的记账记录</a>
 	<div class="container">
 	<h3>添加平台</h3>
 	<form id="login" method="post" action="" >
