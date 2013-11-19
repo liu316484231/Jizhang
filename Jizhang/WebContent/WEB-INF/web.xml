@@ -8,14 +8,15 @@
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
+    <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
   <error-page>
-		<error-code>404</error-code>
-		<location>/Jizhang/404page.jsp</location>
-	</error-page>
-	<error-page>
-		<error-code>500</error-code>
-		<location>/Jizhang/404page.jsp</location>
+    <error-code>404</error-code>
+    <location>/Jizhang/404page.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/Jizhang/404page.jsp</location>
   </error-page>
   <servlet>
     <servlet-name>login</servlet-name>
@@ -33,7 +34,7 @@
     <servlet-name>register</servlet-name>
     <url-pattern>/register</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>jizhang</servlet-name>
     <servlet-class>com.xiaodai.servlet.Jizhang</servlet-class>
   </servlet>

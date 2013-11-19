@@ -8,6 +8,7 @@
 <link type="text/css" href="css/style.css" rel="stylesheet"/>
 <title>登陆</title>
 <script>
+	var websitename = ""; 
 	function validate(){
 			var user = $("#id").val();
 			var pwd = $("#pwd").val();
@@ -49,12 +50,8 @@
 			return true;
 			
 		}
-	$(function(){
-		$("#submit").mouseover(function(){
-			$(this).css("background-color:white");
-		});
-	});
 
+	
 
 </script>
 <style>

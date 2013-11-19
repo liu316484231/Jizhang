@@ -10,112 +10,12 @@
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script>
-//	var website;
-
-	function validate(){
-		var website = $("#website").val();
-		var account = $("#account").val();
-		var date = $("#datepicker").val();
-		var money = $("#money").val();
-		var interest = $("#interest").val();
-		var leninterest = interest.length;
-		var bonus = $("#bonus").val();
-		var management = $("#management").val();
-		var lenbonus = bonus.length;
-		var lenmanagement = management.length;
-		var duration = $("#duration").val();
-		var comment = $("#comment").val();
-		var pattern1 = /\D/;
-		var pattern2 = /[^0-9\.]/;
-		if(website.trim()==""){
-			alert("平台不能为空");
-			$("#website").focus();
-			return false;
-		}
-		if(account.trim()==""){
-			alert("平台帐号不能为空");
-			$("#account").focus();
-			return false;
-		}
-		if(date.trim()==""){
-			alert("借出日期不能为空");
-			$("#datepicker").focus();
-			return false;
-		}
-		if(money.trim()==""){
-			alert("借出金额不能为空");
-			$("#money").focus();
-			return false;
-		}
-		if(interest.trim()==""){
-			alert("利率不能为空");
-			$("#interest").focus();
-			return false;
-		}
-		if(duration.trim()==""){
-			alert("借出期限不能为空");
-			$("#duration").focus();
-			return false;
-		}
-		if(pattern1.test(money)){
-			alert("借出金额格式不正确");
-			$("#money").focus();
-			return false;
-		}
-		if(pattern1.test(duration)){
-			alert("借出期限格式不正确");
-			$("#duration").focus();
-			return false;
-		}
-		if(pattern2.test(interest)||countdot(interest)>1||interest[0]=="."||interest[leninterest-1]=="."){
-			alert("利率格式不正确");
-			$("#interest").focus();
-			return false;
-		}
-		if(bonus.trim()!=""){
-			if(pattern2.test(bonus)||countdot(bonus)>1||bonus[0]=="."||bonus[lenbonus-1]=="."){
-				alert("奖励格式不正确");
-				$("#bonus").focus();
-				return false;
-			}
-		}
-		if(management.trim()!=""){
-			if(pattern2.test(management)||countdot(management)>1||management[0]=="."||management[lenmanagement-1]=="."){
-				alert("管理费格式不正确");
-				$("#management").focus();
-				return false;
-			}
-		}
-		if($("input").val().length>30||comment.length>30){
-			alert("输入框内不能超过30个字符..");
-			return false;
-		}
-		return true;
-		
-	}
 	$(function() {
 		$("#datepicker").datepicker();
 	});
-
-	function countdot(str){
-		var count = 0;
-		for(var i=0;i<str.length;i++){
-			if(str[i]=="."){
-				count++;
-			}
-		}
-		return count;
+	function validate(){
+		
 	}
-//	$(function(){
-//		$("#website").click(function(){
-//	          website = window.showModalDialog("popupwebsites.jsp","dialogWidth=300px;dialogHeight=300px");
-//		});
-//		$("#website").focus(function(){
-//			$(this).val(website);
-//		});
-//	});
-	
-
 </script>
 <style>
 body {
@@ -150,7 +50,7 @@ td{
 	text-align:center;
 }
 </style>
-<title>记帐</title>
+<title>修改记帐信息</title>
 </head>
 <body>
 
@@ -164,13 +64,14 @@ td{
 	<br/>
 	 <a href="login.jsp">退出登陆</a>
 	<div id="container">
+	<h3>修改记帐信息</h3>
 	<form method="post" action="/Jizhang/jizhang" onsubmit="return validate()">
 	
 		<table>
 		
 			<tr>
 				<td class="center">平台<span>*</span>:</td>
-				<td><input type="text" name="website" id="website"/></td>
+				<td><input type="text" name="website" id="website" value="renren"/></td>
 			</tr>
 			<tr>
 				<td class="center">平台帐号<span>*</span>:</td>
@@ -239,7 +140,7 @@ td{
 
 			</tr>
 			<tr>
-				<td colspan="4" class="center"><input type="submit" value="提交记账" /></td>
+				<td colspan="4" class="center"><input type="submit" value="提交修改" /></td>
 			</tr>
 		</table>
 
