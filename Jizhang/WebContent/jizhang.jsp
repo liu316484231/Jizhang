@@ -170,7 +170,7 @@ td{
 		}
 	%>&nbsp;&nbsp; <a href="login.jsp">退出登陆</a>
 	<br/>
-	<a href="#">首页</a>&nbsp;&nbsp;<a style="color:red">快速记帐</a>&nbsp;&nbsp;<a href="chakan.jsp">记账记录</a>&nbsp;&nbsp;<a href="modifyuserinfo.jsp">个人中心</a>&nbsp;&nbsp;<a href="pingtai.jsp">平台管理</a>
+	<a href="#">首页</a>&nbsp;&nbsp;<a style="color:red">快速记帐</a>&nbsp;&nbsp;<a href="chakan.jsp">记账记录</a>&nbsp;&nbsp;<a href="modifyuserinfo.jsp">个人中心</a>&nbsp;&nbsp;<a href="showwebsites.jsp">平台管理</a>&nbsp;&nbsp;<a href="pingtai.jsp">添加平台</a>
 	<div id="container">
 	<form method="post" action="/Jizhang/jizhang" onsubmit="return validate()">
 	
