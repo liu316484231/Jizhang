@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <base target="_self">
-<title>添加平台</title>
+<title>平台管理</title>
 <style>
 body {
 	text-align: center;
@@ -50,9 +50,13 @@ function validate(){
 		if(name==null||name.trim().equals("")){
 			//response.sendRedirect("login.jsp");
 		}
-	%><br/>
+	%>&nbsp;&nbsp;<a href="login.jsp">退出登陆</a><br/>
 	
-	 <a href="login.jsp">退出登陆</a>&nbsp;&nbsp;<a href="modifyuserinfo.jsp">个人中心</a>&nbsp;&nbsp;<a href="jizhang.jsp">快速记账</a>&nbsp;&nbsp;<a href="chakan.jsp">查看我的记账记录</a>
+	<a href="#">首页</a>&nbsp;&nbsp;<a href="jizhang.jsp">快速记帐</a>&nbsp;&nbsp;<a href="chakan.jsp">记账记录</a>&nbsp;&nbsp;<a href="modifyuserinfo.jsp">个人中心</a>&nbsp;&nbsp;<a style="color:red">平台管理</a>
+	<div class="container">
+	<h3>我的平台</h3>	
+	</div>
+	
 	<div class="container">
 	<h3>添加平台</h3>
 	<form id="login" method="post" action="" >

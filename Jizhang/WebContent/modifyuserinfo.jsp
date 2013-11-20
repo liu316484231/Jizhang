@@ -106,9 +106,9 @@ function validate(){
 </script>
 </head>
 <body>
-	欢迎:<%=session.getAttribute("name") %>
+	欢迎:<%=session.getAttribute("name") %>&nbsp;&nbsp; <a href="login.jsp">退出登陆</a>
 	<br/>
-	 <a href="login.jsp">退出登陆</a>&nbsp;&nbsp;<a href="jizhang.jsp">快速记账</a>&nbsp;&nbsp;<a href="pingtai.jsp">平台管理</a>&nbsp;&nbsp;<a href="chakan.jsp">查看我的记账记录</a>
+	<a href="#">首页</a>&nbsp;&nbsp;<a href="jizhang.jsp">快速记帐</a>&nbsp;&nbsp;<a href="chakan.jsp">记账记录</a>&nbsp;&nbsp;<a style="color:red">个人中心</a>&nbsp;&nbsp;<a href="pingtai.jsp">平台管理</a>
 <div id="container">
 	<h3>修改您的个人信息</h3>
 	<hr/>

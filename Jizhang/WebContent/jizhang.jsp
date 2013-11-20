@@ -106,6 +106,14 @@
 		}
 		return count;
 	}
+	function compute(){
+		var money = $("#money").val();
+		var interest = $("#interest").val();
+		var bonus = $("#bonus").val();
+		var management = $("#management").val();
+		var duration = $("#duration").val();
+		var repaymentmode = $("#type").val();
+	}
 //	$(function(){
 //		$("#website").click(function(){
 //	          website = window.showModalDialog("popupwebsites.jsp","dialogWidth=300px;dialogHeight=300px");
@@ -160,9 +168,9 @@ td{
 		if(name==null||name.trim().equals("")){
 			response.sendRedirect("login.jsp");
 		}
-	%>
+	%>&nbsp;&nbsp; <a href="login.jsp">退出登陆</a>
 	<br/>
-	 <a href="login.jsp">退出登陆</a>&nbsp;&nbsp;<a href="modifyuserinfo.jsp">个人中心</a>&nbsp;&nbsp;<a href="pingtai.jsp">平台管理</a>&nbsp;&nbsp;<a href="chakan.jsp">查看我的记账记录</a>
+	<a href="#">首页</a>&nbsp;&nbsp;<a style="color:red">快速记帐</a>&nbsp;&nbsp;<a href="chakan.jsp">记账记录</a>&nbsp;&nbsp;<a href="modifyuserinfo.jsp">个人中心</a>&nbsp;&nbsp;<a href="pingtai.jsp">平台管理</a>
 	<div id="container">
 	<form method="post" action="/Jizhang/jizhang" onsubmit="return validate()">
 	
@@ -235,8 +243,33 @@ td{
 			</tr>
 			<tr>
 				<td class="center">总收益(含奖励):</td>
-				<td style="color:red" id="income">1000</td>
-
+				<td style="color:red" id="totalincome">1000</td>
+				<td>元</td>
+			</tr>
+			<tr>
+				<td class="center">奖励:</td>
+				<td style="color:red" id="bonusincome">1000</td>
+				<td>元</td>
+			</tr>
+			<tr>
+				<td class="center">年化利率:</td>
+				<td style="color:red" id="yearrate">100</td>
+				<td>%</td>
+			</tr>
+			<tr>
+				<td class="center">复利利率:</td>
+				<td style="color:red" id="flyearrate">100</td>
+				<td>%</td>
+			</tr>
+			<tr>
+				<td class="center">年化月利率:</td>
+				<td style="color:green" id="monthrate">100</td>
+				<td>%</td>
+			</tr>
+			<tr>
+				<td class="center">复利月利率:</td>
+				<td style="color:green" id="flmonthrate">100</td>
+				<td>%</td>
 			</tr>
 			<tr>
 				<td colspan="4" class="center"><input type="submit" value="提交记账" /></td>

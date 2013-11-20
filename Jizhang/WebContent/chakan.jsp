@@ -57,14 +57,14 @@ table{
 </head>
 <body>
 
-  欢迎:<%=session.getAttribute("name") %><br/>
-  您的记帐明细如下:
-  <br/>
-  <br/>
-  <a href="jizhang.jsp">返回继续添加记帐</a>&nbsp;&nbsp;<a href="modifyuserinfo.jsp">个人中心</a>&nbsp;&nbsp;<a href="pingtai.jsp">平台管理</a>
- <a href="login.jsp">退出登录</a>
- <br/>
+  欢迎:<%=session.getAttribute("name") %>&nbsp;&nbsp;<a href="login.jsp">退出登录</a><br/>
+
+
+<a href="#">首页</a>&nbsp;&nbsp;<a href="jizhang.jsp">快速记帐</a>&nbsp;&nbsp;<a style="color:red">记账记录</a>&nbsp;&nbsp;<a href="modifyuserinfo.jsp">个人中心</a>&nbsp;&nbsp;<a href="pingtai.jsp">平台管理</a>
+ 
+
  <div id="container">
+   您的记帐明细如下:
  <table border="1px solid black">
  	<tr>
  		<th>序号</th>
