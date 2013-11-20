@@ -102,7 +102,9 @@ table{
 			<td><%=list.get(i).getRepaymentmode() %></td>
 			<td><%=list.get(i).getStatus() %></td>
 			<td><%=list.get(i).getComment() %></td>
-			<td><a href="#">修改</a><br/><a href="javascript:del(<%=list.get(i).getId() %>)">删除</a></td>
+			<td><a href="/Jizhang/modifyjizhanginfo.jsp?id=<%=list.get(i).getId() %>&amp;websitename=<%=list.get(i).getWebsitename() %>&amp;account=<%=list.get(i).getAccount() %>&amp;date=<%=list.get(i).getDate() %>&amp;money=<%=list.get(i).getMoney() %>&amp;interest=<%=list.get(i).getInterest() %>&amp;bonus=<%=list.get(i).getBonus() %>&amp;management=<%=list.get(i).getManagement() %>&amp;durationdays=<%=list.get(i).getDurationdays() %>&amp;durationmonths=<%=list.get(i).getDurationmonths() %>&amp;repaymentmode=<%=list.get(i).getRepaymentmode() %>&amp;status=<%=list.get(i).getStatus()%>&amp;comment=<%=list.get(i).getComment() %> ">修改</a>
+				<br/><a href="javascript:del(<%=list.get(i).getId() %>)">删除</a>
+			</td>
 		</tr>
 	<%} %>
 	

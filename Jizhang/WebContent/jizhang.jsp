@@ -95,6 +95,7 @@
 	}
 	$(function() {
 		$("#datepicker").datepicker();
+		$("#datepicker").datepicker("option", "dateFormat", "yy-mm-dd");
 	});
 
 	function countdot(str){
@@ -196,8 +197,8 @@ td{
 				<td class="center">利率<span>*</span>:</td>
 				<td><input type="text" name="interest" id="interest"/>%</td>
 				<td>
-					<input type="radio" name="interest1" value="month" checked="checked"/>日利率
-					<input type="radio" name="interest1" value="year" />年利率
+					<input type="radio" name="interest1" value="month" />日利率
+					<input type="radio" name="interest1" value="year" checked="checked"/>年利率
 					
 				</td>
 			</tr>

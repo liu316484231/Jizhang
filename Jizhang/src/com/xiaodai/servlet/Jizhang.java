@@ -41,7 +41,7 @@ public class Jizhang extends HttpServlet {
 		String username = (String) request.getSession().getAttribute("name");
 		String websitename = request.getParameter("website");
 		String account = request.getParameter("account");
-		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = null;
 		try {
 			if(!request.getParameter("date").trim().equals("")){
