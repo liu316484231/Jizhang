@@ -8,6 +8,8 @@
 <link type="text/css" href="css/style.css" rel="stylesheet"/>
 <title>记帐明细</title>
 	<%
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		String name = (String)session.getAttribute("name"); 
 		System.out.println(name);
 		if(name==null||name.trim().equals("")){

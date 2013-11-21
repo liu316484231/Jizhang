@@ -101,9 +101,8 @@
 			compute();
 			});
 		
-	
-		$("input[name='dura']:radio,input[name='interest1']:radio").click(function(){
-			
+		$("#radio1,#radio2,#radio3,#radio4").click(function(){
+			//alert("this");
 			compute();
 			
 		});
@@ -138,8 +137,9 @@
 		
 	
 	
-		if ($("#radio1").attr("checked")=="checked"){
+		if (document.getElementById("radio1").checked){
 			yearRate = yearRate * 365;
+			//alert(yearRate);
 		}
 		
 		yearRate = yearRate * (1 - fee);
@@ -155,7 +155,7 @@
 			repayType = 1;
 		}
 	
-		if ($("#radio3").attr("checked")=="checked") {
+		if (document.getElementById("radio3").checked) {
 			if (repayType == 1) {
 				totalYearRate = 24.00 * prize / (limitTime + 1) + yearRate;
 				flYearRate = (Math.pow((1 + totalYearRate / 1200), 12) - 1) * 100;
@@ -193,7 +193,7 @@
 			$("#bonusincome").html(Math.round(money*prize) / 100);
 		}
 		
-		if ($("#radio4").attr("checked")=="checked") {
+		if (document.getElementById("radio4").checked) {
 			totalYearRate = yearRate + prize / limitTime * 360;
 			monthRate = totalYearRate / 12;
 			earnMoney = money * yearRate * limitTime / 36000 + money * prize / 100;
@@ -259,8 +259,10 @@ td{
 	<%
 		String name = (String)session.getAttribute("name"); 
 		if(name==null||name.trim().equals("")){
-			//response.sendRedirect("login.jsp");
+			response.sendRedirect("login.jsp");
 		}
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 	%>&nbsp;&nbsp; <a href="login.jsp">退出登陆</a>
 	<br/>
 	<a href="#">首页</a>&nbsp;&nbsp;<a style="color:red">快速记帐</a>&nbsp;&nbsp;<a href="chakan.jsp">记账记录</a>&nbsp;&nbsp;<a href="modifyuserinfo.jsp">个人中心</a>&nbsp;&nbsp;<a href="showwebsites.jsp">平台管理</a>&nbsp;&nbsp;<a href="pingtai.jsp">添加平台</a>
