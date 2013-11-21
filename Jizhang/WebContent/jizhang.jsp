@@ -95,7 +95,7 @@
 	}
 	$(function() {
 		$("#datepicker").datepicker();
-		$("#datepicker").datepicker("option", "dateFormat", "yy-mm-dd");
+		
 	});
 
 	function countdot(str){
@@ -108,12 +108,83 @@
 		return count;
 	}
 	function compute(){
-		var money = $("#money").val();
-		var interest = $("#interest").val();
-		var bonus = $("#bonus").val();
-		var management = $("#management").val();
-		var duration = $("#duration").val();
-		var repaymentmode = $("#type").val();
+		var money = parseFloat($("#money").val());
+		var yearRate = parseFloat($("#interest").val());
+		var prize = parseFloat($("#bonus").val());
+		var fee = parseFloat($("#management").val()/100);
+		var limitTime = parseFloat($("#duration").val());
+	
+		
+		totalYearRate = 0;
+	
+		if (document.getElementById("radioday").checked){
+			yearRate = yearRate * 365;
+		}
+	
+		yearRate = yearRate * (1 - fee);
+		if ($("#type").html() == "按月还款") {
+			repayType = 1;
+		} else if ($("#type").html() == "按季还款") {
+			repayType = 2;
+		} else if ($("#type").html() == "按月还息到期还本") {
+			repayType = 3;
+		} else if ($("#type").html() == "到期还款") {
+			repayType = 4;
+		} else {
+			repayType = 1;
+		}
+		
+		if (document.getElementById("radio3").checked && limitTime > 0) {
+			if (repayType == 1) {
+				totalYearRate = 24.00 * prize / (limitTime + 1) + yearRate;
+				flYearRate = (Math.pow((1 + totalYearRate / 1200), 12) - 1) * 100;
+				if (yearRate > 0) {
+					earnMoney = (money * yearRate / 1200 * Math.pow((1 + yearRate / 1200), limitTime) /(Math.pow((1 + yearRate / 1200),limitTime)- 1) * limitTime - money + money * prize / 100);
+				} else {
+					earnMoney = Math.round(money*prize) / 100;
+				}
+			} 
+			
+			else if (repayType == 2) {
+				season = Math.ceil(limitTime / 3);
+ 				earnMoney = money * yearRate * (1 + season) / 800 + money * prize / 100;
+ 				totalYearRate = (yearRate * 3 + 24 * prize /(limitTime/3+1)) / 3;
+ 				flYearRate = (Math.pow((1 + totalYearRate / 400), 4) - 1) * 100;
+			} 
+			
+			else if (repayType == 3) {
+				earnMoney = money * yearRate * limitTime / 1200 + money * prize / 100;
+ 				totalYearRate = (yearRate * limitTime + 12 * prize) / limitTime;
+ 				flYearRate = (Math.pow((1 + totalYearRate / 1200 * limitTime), 12 / limitTime) - 1) * 100;
+			} 
+			
+			else if (repayType == 4) {
+				earnMoney = money * yearRate * limitTime / 1200 + money * prize / 100;
+ 				totalYearRate = yearRate + prize * 12 / limitTime;
+ 				flYearRate = (Math.pow((1 + totalYearRate / 1200 * limitTime), 12 / limitTime) - 1) * 100;
+			} 
+			
+			$("#yearrate").html(Math.round(totalYearRate*100)/100);
+			$("#monthrate").html(Math.round(totalYearRate/12*100)/100);
+			$("#flyearrate").html(Math.round(flYearRate*100)/100);
+			$("#flmonthrate").html(Math.round(flYearRate/12*100)/100);
+			$("#totalincome").html(Math.round(earnMoney*100)/100);
+			$("#bonusincome").html(Math.round(money*prize) / 100);
+		}
+		
+		if (document.getElementById("radio4").checked && yearRate > 0 && limitTime > 0) {
+			totalYearRate = yearRate + prize / limitTime * 360;
+			monthRate = totalYearRate / 12;
+			earnMoney = money * yearRate * limitTime / 36000 + money * prize / 100;
+			flYearRate = (Math.pow((1 + totalYearRate / 36500 * limitTime), 365 / limitTime) - 1) * 100;
+			
+			$("#yearrate").html(Math.round(totalYearRate*100)/100);
+			$("#monthrate").html(Math.round(totalYearRate/12*100)/100);
+			$("#flyearrate").html(Math.round(flYearRate*100)/100);
+			$("#flmonthrate").html(Math.round(flYearRate/12*100)/100);
+			$("#totalincome").html(Math.round(earnMoney*100)/100);
+			$("#bonusincome").html(Math.round(money*prize) / 100);
+		}
 	}
 //	$(function(){
 //		$("#website").click(function(){
@@ -197,8 +268,8 @@ td{
 				<td class="center">利率<span>*</span>:</td>
 				<td><input type="text" name="interest" id="interest"/>%</td>
 				<td>
-					<input type="radio" name="interest1" value="month" />日利率
-					<input type="radio" name="interest1" value="year" checked="checked"/>年利率
+					<input type="radio" name="interest1" value="month" checked="checked" id="radioday"/>日利率
+					<input type="radio" name="interest1" value="year" />年利率
 					
 				</td>
 			</tr>
@@ -216,8 +287,8 @@ td{
 				<td class="center">借出期限<span>*</span>:</td>
 				<td><input type="text" name="duration" id="duration"/></td>
 				<td>
-					<input type="radio" name="dura" value="day" />天
-					<input type="radio" name="dura" value="month" checked="checked"/>月
+					<input type="radio" name="dura" value="day" id="radio4"/>天
+					<input type="radio" name="dura" value="month" checked="checked" id="radio3"/>月
 					
 				</td>
 			</tr>
@@ -244,32 +315,32 @@ td{
 			</tr>
 			<tr>
 				<td class="center">总收益(含奖励):</td>
-				<td style="color:red" id="totalincome">1000</td>
+				<td style="color:red" id="totalincome"></td>
 				<td>元</td>
 			</tr>
 			<tr>
 				<td class="center">奖励:</td>
-				<td style="color:red" id="bonusincome">1000</td>
+				<td style="color:red" id="bonusincome"></td>
 				<td>元</td>
 			</tr>
 			<tr>
 				<td class="center">年化利率:</td>
-				<td style="color:red" id="yearrate">100</td>
+				<td style="color:red" id="yearrate"></td>
 				<td>%</td>
 			</tr>
 			<tr>
 				<td class="center">复利利率:</td>
-				<td style="color:red" id="flyearrate">100</td>
+				<td style="color:red" id="flyearrate"></td>
 				<td>%</td>
 			</tr>
 			<tr>
 				<td class="center">年化月利率:</td>
-				<td style="color:green" id="monthrate">100</td>
+				<td style="color:green" id="monthrate"></td>
 				<td>%</td>
 			</tr>
 			<tr>
 				<td class="center">复利月利率:</td>
-				<td style="color:green" id="flmonthrate">100</td>
+				<td style="color:green" id="flmonthrate"></td>
 				<td>%</td>
 			</tr>
 			<tr>
