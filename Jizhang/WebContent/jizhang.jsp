@@ -95,8 +95,16 @@
 	}
 	$(function() {
 		$("#datepicker").datepicker();
-		
-	});
+		$("#datepicker").datepicker("option", "dateFormat", "yy-mm-dd");
+		$("input").bind("blur keyup",function(){
+		//	alert("this");
+			compute();
+			});
+		});
+		$("#radio1,#radio2,#radio3,#radio4").click(function(){
+			alert("this");
+			compute();
+		});
 
 	function countdot(str){
 		var count = 0;
@@ -108,33 +116,39 @@
 		return count;
 	}
 	function compute(){
+		
+		
+		
 		var money = parseFloat($("#money").val());
 		var yearRate = parseFloat($("#interest").val());
 		var prize = parseFloat($("#bonus").val());
 		var fee = parseFloat($("#management").val()/100);
 		var limitTime = parseFloat($("#duration").val());
-	
+		var earnMoney = 0;
+		var totalYearRate = 0.0;
+		var flYearRate = 0.0;
+		var season;
 		
-		totalYearRate = 0;
 	
-		if (document.getElementById("radioday").checked){
+	
+		if ($("#radio1").attr("checked")=="checked"){
 			yearRate = yearRate * 365;
 		}
-	
+		
 		yearRate = yearRate * (1 - fee);
-		if ($("#type").html() == "按月还款") {
+		if ($("#type option:selected").html() == "按月还款") {
 			repayType = 1;
-		} else if ($("#type").html() == "按季还款") {
+		} else if ($("#type option:selected").html() == "按季还款") {
 			repayType = 2;
-		} else if ($("#type").html() == "按月还息到期还本") {
+		} else if ($("#type option:selected").html() == "按月还息到期还本") {
 			repayType = 3;
-		} else if ($("#type").html() == "到期还款") {
+		} else if ($("#type option:selected").html() == "到期还款") {
 			repayType = 4;
 		} else {
 			repayType = 1;
 		}
-		
-		if (document.getElementById("radio3").checked && limitTime > 0) {
+		$("#yearrate").html($("#radio1").checked);
+		if ($("#radio3").attr("checked")=="checked") {
 			if (repayType == 1) {
 				totalYearRate = 24.00 * prize / (limitTime + 1) + yearRate;
 				flYearRate = (Math.pow((1 + totalYearRate / 1200), 12) - 1) * 100;
@@ -172,7 +186,7 @@
 			$("#bonusincome").html(Math.round(money*prize) / 100);
 		}
 		
-		if (document.getElementById("radio4").checked && yearRate > 0 && limitTime > 0) {
+		if ($("#radio4").attr("checked")=="checked") {
 			totalYearRate = yearRate + prize / limitTime * 360;
 			monthRate = totalYearRate / 12;
 			earnMoney = money * yearRate * limitTime / 36000 + money * prize / 100;
@@ -238,7 +252,7 @@ td{
 	<%
 		String name = (String)session.getAttribute("name"); 
 		if(name==null||name.trim().equals("")){
-			response.sendRedirect("login.jsp");
+			//response.sendRedirect("login.jsp");
 		}
 	%>&nbsp;&nbsp; <a href="login.jsp">退出登陆</a>
 	<br/>
@@ -263,24 +277,25 @@ td{
 			<tr>
 				<td class="center">借出金额<span>*</span>:</td>
 				<td><input type="text" name="money" id="money"/></td>
+				<td>元</td>
 			</tr>
 			<tr>
 				<td class="center">利率<span>*</span>:</td>
 				<td><input type="text" name="interest" id="interest"/>%</td>
 				<td>
-					<input type="radio" name="interest1" value="month" checked="checked" id="radioday"/>日利率
-					<input type="radio" name="interest1" value="year" />年利率
+					<input type="radio" name="interest1" value="month" id="radio1"/>日利率
+					<input type="radio" name="interest1" value="year" id="radio2" checked="checked"/>年利率
 					
 				</td>
 			</tr>
 			<tr>
 				<td class="center">奖励:</td>
-				<td><input type="text" name="bonus" id="bonus"/>%</td>
+				<td><input type="text" name="bonus" id="bonus" value="0"/>%</td>
 				<td>(选填)</td>
 			</tr>
 			<tr>
 				<td class="center">管理费:</td>
-				<td><input type="text" name="management" id="management"/>%</td>
+				<td><input type="text" name="management" id="management" value="0"/>%</td>
 				<td>(选填)</td>
 			</tr>
 			<tr>
@@ -315,32 +330,32 @@ td{
 			</tr>
 			<tr>
 				<td class="center">总收益(含奖励):</td>
-				<td style="color:red" id="totalincome"></td>
+				<td><div  style="color:red" id="totalincome"></div></td>
 				<td>元</td>
 			</tr>
 			<tr>
 				<td class="center">奖励:</td>
-				<td style="color:red" id="bonusincome"></td>
+				<td><div  style="color:red" id="bonusincome"></div></td>
 				<td>元</td>
 			</tr>
 			<tr>
 				<td class="center">年化利率:</td>
-				<td style="color:red" id="yearrate"></td>
+				<td ><div style="color:red" id="yearrate"></div></td>
 				<td>%</td>
 			</tr>
 			<tr>
 				<td class="center">复利利率:</td>
-				<td style="color:red" id="flyearrate"></td>
+				<td ><div style="color:red" id="flyearrate"></div></td>
 				<td>%</td>
 			</tr>
 			<tr>
 				<td class="center">年化月利率:</td>
-				<td style="color:green" id="monthrate"></td>
+				<td ><div style="color:green" id="monthrate"></div></td>
 				<td>%</td>
 			</tr>
 			<tr>
 				<td class="center">复利月利率:</td>
-				<td style="color:green" id="flmonthrate"></td>
+				<td ><div style="color:green" id="flmonthrate"></div></td>
 				<td>%</td>
 			</tr>
 			<tr>
