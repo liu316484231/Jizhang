@@ -100,12 +100,19 @@
 		//	alert("this");
 			compute();
 			});
-		});
-		$("#radio1,#radio2,#radio3,#radio4").click(function(){
-			alert("this");
+		
+	
+		$("input[name='dura']:radio,input[name='interest1']:radio").click(function(){
+			
 			compute();
+			
 		});
-
+		
+		$("#type").change(function(){
+			compute();
+			
+		});
+	});
 	function countdot(str){
 		var count = 0;
 		for(var i=0;i<str.length;i++){
@@ -147,7 +154,7 @@
 		} else {
 			repayType = 1;
 		}
-		$("#yearrate").html($("#radio1").checked);
+	
 		if ($("#radio3").attr("checked")=="checked") {
 			if (repayType == 1) {
 				totalYearRate = 24.00 * prize / (limitTime + 1) + yearRate;
