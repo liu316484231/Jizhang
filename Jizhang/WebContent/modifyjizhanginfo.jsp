@@ -96,7 +96,16 @@ $(function() {
 	$("#datepicker").datepicker();
 	$("#datepicker").datepicker("option", "dateFormat", "yy-mm-dd");
 	
-
+	if(<%=request.getParameter("type")%> == "按月还款"){
+		$("#type").val("按月还款");
+	}else if(<%=request.getParameter("type")%> == "按季还款"){
+		$("#type").val("按季还款");
+	}else if(<%=request.getParameter("type")%> == "到期还款"){
+		$("#type").val("到期还款");
+	}else{
+		$("#type").val("按月还息到期还款");
+	}
+	
 	
 });
 
@@ -125,9 +134,6 @@ body {
 	font-family: KaiTi;
 }
 
-#website,#account,#datepicker,#money,#interest,#bonus,#management,#duration,#type {
-	
-}
 
 #submit {
 	font-family: KaiTi;
@@ -160,7 +166,7 @@ td{
 	<%
 		String name = (String)session.getAttribute("name"); 
 		if(name==null||name.trim().equals("")){
-			//response.sendRedirect("login.jsp");
+			response.sendRedirect("login.jsp");
 		}
 	%>
 	<br/>
@@ -181,7 +187,7 @@ td{
 			</tr>
 			<tr>
 				<td class="center">借出日期<span>*</span>:</td>
-				<td><input type="text" name="date" id="datepicker" value="<%=request.getParameter("date") %>"/></td>
+				<td><input type="text" name="date" id="datepicker" value= <%=request.getParameter("date") %> /></td>
 			</tr>
 			<tr>
 				<td class="center">借出金额<span>*</span>:</td>
@@ -189,7 +195,7 @@ td{
 			</tr>
 			<tr>
 				<td class="center">利率<span>*</span>:</td>
-				<td><input type="text" name="interest" id="interest"/>%</td>
+				<td><input type="text" name="interest" id="interest" value="<%=request.getParameter("yinterest") %>>"/>%</td>
 				<td>
 					<input type="radio" name="interest1" value="month" />日利率
 					<input type="radio" name="interest1" value="year" checked="checked"/>年利率

@@ -57,7 +57,7 @@ function validate(){
 	
 	<div class="container">
 	<h3>添加平台</h3>
-	<form id="login" method="post" action="" >
+	<form id="login" method="post" action="" onsubmit="return onsubmit()">
 		<table>
 			<tr>
 				<td>平台:</td>
@@ -76,8 +76,8 @@ function validate(){
 				<td><textarea cols="15" rows="5" name="comment" id="comment"></textarea></td>
 			</tr>
 			<tr>
-				<td ><input type="submit" value="添加" id="submit" onclick="onsubmit()"/></td>
-				<td><a href="">返回</a></td>
+				<td colspan="2"><input type="submit" value="添加" id="submit" /></td>
+				
 				
 			</tr>
 		</table>
